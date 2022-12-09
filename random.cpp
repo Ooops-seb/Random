@@ -30,10 +30,12 @@ int main(){
     nombre_archivo = nombre_archivo + aux;
     nombre_archivo = nombre_archivo + ".dat";
     archivo.open(nombre_archivo.c_str(), ios::out);
-    for(int i=0; i<numeros+1; i++){
+    for(int i=0; i<numeros; i++){
         random = min + rand() % (max - min);
         cout <<"["<<i+1<<"]: "<< random << endl;
         escribir(random, numeros);
+        if (i<numeros-1)
+            archivo<<endl;
     }
     
     archivo.close();
@@ -46,6 +48,6 @@ void escribir(int dato, int numeros){
         exit(1);
     }
     else{
-        archivo << dato << endl;
+        archivo << dato;
     }
 }
